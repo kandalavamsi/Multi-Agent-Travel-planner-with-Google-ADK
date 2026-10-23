@@ -1,0 +1,4 @@
+{
+    "name": "host_agent",
+    "description": "Coordinates travel planning by interacting with other agents."
+}

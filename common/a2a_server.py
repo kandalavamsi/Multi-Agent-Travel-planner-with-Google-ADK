@@ -1,10 +1,11 @@
 from fastapi import FastAPI
-import uvicorn
+from shared.schemas import TravelRequest
 
 def create_app(agent):
-    app=FastAPI()
+    app = FastAPI()
 
     @app.post("/run")
-    async def run(payload: dict):
-        return await agent.execute(payload)
+    async def run(request: TravelRequest):
+        return await agent.execute(request.model_dump(mode="json"))
+
     return app
